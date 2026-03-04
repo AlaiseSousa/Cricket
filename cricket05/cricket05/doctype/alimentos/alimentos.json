@@ -1,0 +1,73 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-04 11:42:54.539983",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "nome",
+  "unidade_de_medida",
+  "tipo_de_mat\u00e9ria_prima",
+  "descri\u00e7\u00e3o",
+  "observa\u00e7\u00f5es"
+ ],
+ "fields": [
+  {
+   "fieldname": "nome",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Nome",
+   "reqd": 1
+  },
+  {
+   "fieldname": "unidade_de_medida",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Unidade de Medida",
+   "options": "kg\ng\nL\nmL\nunidade",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tipo_de_mat\u00e9ria_prima",
+   "fieldtype": "Data",
+   "label": "Tipo de Mat\u00e9ria Prima"
+  },
+  {
+   "fieldname": "descri\u00e7\u00e3o",
+   "fieldtype": "Small Text",
+   "label": "Descri\u00e7\u00e3o"
+  },
+  {
+   "fieldname": "observa\u00e7\u00f5es",
+   "fieldtype": "Text",
+   "label": "Observa\u00e7\u00f5es"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-04 11:59:00.165819",
+ "modified_by": "Administrator",
+ "module": "Cricket05",
+ "name": "Alimentos",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
