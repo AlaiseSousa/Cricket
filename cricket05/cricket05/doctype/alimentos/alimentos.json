@@ -8,6 +8,8 @@
   "nome",
   "unidade_de_medida",
   "tipo_de_mat\u00e9ria_prima",
+  "ativo",
+  "column_break_nbnz",
   "descri\u00e7\u00e3o",
   "observa\u00e7\u00f5es"
  ],
@@ -39,14 +41,24 @@
   },
   {
    "fieldname": "observa\u00e7\u00f5es",
-   "fieldtype": "Text",
+   "fieldtype": "Small Text",
    "label": "Observa\u00e7\u00f5es"
+  },
+  {
+   "fieldname": "column_break_nbnz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1\n",
+   "fieldname": "ativo",
+   "fieldtype": "Check",
+   "label": "Ativo"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-03-04 11:59:00.165819",
+ "modified": "2026-03-04 14:54:58.401351",
  "modified_by": "Administrator",
  "module": "Cricket05",
  "name": "Alimentos",

@@ -1,24 +1,16 @@
-# Copyright (c) 2026, . and contributors
-# For license information, please see license.txt
-
-# import frappe
+import frappe
 from frappe.model.document import Document
 
-
 class Alimentos(Document):
-	# begin: auto-generated types
-	# This code is auto-generated. Do not modify anything in this block.
+    def validate(self):
+        # Bloquear nomes duplicados
+        if self.nome:
+            existing = frappe.get_all("Alimentos", filters={"nome": self.nome}, limit=1)
+            if existing:
+                if not self.name or existing[0].name != self.name:
+                    frappe.throw(f"O alimento '{self.nome}' já existe!")
 
-	from typing import TYPE_CHECKING
-
-	if TYPE_CHECKING:
-		from frappe.types import DF
-
-		descrição: DF.SmallText | None
-		nome: DF.Data
-		observações: DF.Text | None
-		tipo_de_matéria_prima: DF.Data | None
-		unidade_de_medida: DF.Literal["kg", "g", "L", "mL", "unidade"]
-	# end: auto-generated types
-
-	pass
+        # Validar unidade de medida
+        unidades_validas = ["kg", "g", "L", "mL", "unidade"]
+        if self.unidade_de_medida not in unidades_validas:
+            frappe.throw(f"Unidade inválida. Escolha: {', '.join(unidades_validas)}")
