@@ -13,13 +13,15 @@ frappe.ui.form.on('Fornecedor', {
 
 // Configuração da List View
 frappe.listview_settings['Fornecedor'] = {
-    add_fields: ["estado", "nif", "nome"],
+    add_fields: ["nif", "nome", "estado", "telefone"],
 
     get_indicator: function(doc) {
         if (doc.estado === "Ativo") {
             return [__("Ativo"), "green", "estado,=,Ativo"];
-        } else {
+        } else if (doc.estado === "Inativo") {
             return [__("Inativo"), "red", "estado,=,Inativo"];
+        } else {
+            return [__("Desconhecido"), "gray", "estado,=, "];
         }
     }
 };
