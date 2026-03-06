@@ -1,24 +1,3 @@
-// Copyright (c) 2026, . and contributors
-// For license information, please see license.txt
-
-// frappe.ui.form.on("Alimentos", {
-// 	refresh(frm) {
-
-// 	},
-// });
-frappe.listview_settings['Alimentos'] = {
-    add_fields: ["nome", "unidade_de_medida", "tipo_materia_prima", "ativo"],
-    get_indicator: function(doc) {
-        if(doc.ativo) {
-            return [__("Ativo"), "green", "ativo,=,1"];
-        } else {
-            return [__("Inativo"), "red", "ativo,=,0"];
-        }
-    },
-    filters: [["ativo", "=", 1]] // mostra apenas ativos por padrão
-};
-
-
 frappe.ui.form.on('Alimentos', {
     onload: function(frm) {
         // guarda unidade original
@@ -38,5 +17,42 @@ frappe.ui.form.on('Alimentos', {
                 }
             );
         }
+    },
+    before_delete: function(frm) {
+        frappe.call({
+            method: "frappe.client.get_list",
+            args: {
+                doctype: "Lote",
+                filters: { alimento: frm.doc.name },
+                limit_page_length: 1
+            },
+            callback: function(r) {
+                if (r.message && r.message.length > 0) {
+                    frappe.confirm(
+                        `O alimento "${frm.doc.nome}" possui lotes associados. Deseja inativá-lo em vez de eliminar?`,
+                        function() {
+                            // Usuário confirmou → inativa
+                            frappe.call({
+                                method: "frappe.client.set_value",
+                                args: {
+                                    doctype: frm.doc.doctype,
+                                    name: frm.doc.name,
+                                    fieldname: "ativo",
+                                    value: 0
+                                },
+                                callback: function() {
+                                    frm.reload_doc();
+                                    frappe.msgprint('Alimento inativado com sucesso.');
+                                }
+                            });
+                        },
+                        function() {
+                            frappe.msgprint('Ação cancelada.');
+                        }
+                    );
+                    frappe.validated = false; // cancela a exclusão
+                }
+            }
+        });
     }
 });

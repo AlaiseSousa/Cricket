@@ -2,40 +2,28 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "field:nome",
- "creation": "2026-03-04 11:42:54.539983",
+ "creation": "2026-03-05 15:17:37.242472",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "tipo_de_mp_section",
   "nome",
-  "unidade_de_medida",
-  "tipo_de_mat\u00e9ria_prima",
-  "ativo",
-  "column_break_nbnz",
   "descri\u00e7\u00e3o",
-  "observa\u00e7\u00f5es"
+  "ativo"
  ],
  "fields": [
   {
    "fieldname": "nome",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Nome",
+   "label": "Nome de materia prima",
    "reqd": 1,
    "unique": 1
   },
   {
-   "fieldname": "unidade_de_medida",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Unidade de Medida",
-   "options": "kg\ng\nL\nmL\nunidade",
-   "reqd": 1
-  },
-  {
-   "fieldname": "tipo_de_mat\u00e9ria_prima",
-   "fieldtype": "Link",
-   "label": "Tipo de Mat\u00e9ria Prima",
-   "options": "Tipos de MP"
+   "fieldname": "tipo_de_mp_section",
+   "fieldtype": "Section Break",
+   "label": "Tipo de MP"
   },
   {
    "fieldname": "descri\u00e7\u00e3o",
@@ -43,16 +31,7 @@
    "label": "Descri\u00e7\u00e3o"
   },
   {
-   "fieldname": "observa\u00e7\u00f5es",
-   "fieldtype": "Small Text",
-   "label": "Observa\u00e7\u00f5es"
-  },
-  {
-   "fieldname": "column_break_nbnz",
-   "fieldtype": "Column Break"
-  },
-  {
-   "default": "1\n",
+   "default": "0",
    "fieldname": "ativo",
    "fieldtype": "Check",
    "in_list_view": 1,
@@ -62,10 +41,10 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-03-06 08:22:29.320300",
+ "modified": "2026-03-05 20:33:24.350631",
  "modified_by": "Administrator",
  "module": "Cricket05",
- "name": "Alimentos",
+ "name": "Tipos de MP",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
@@ -78,26 +57,6 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Gestor",
-   "share": 1
-  },
-  {
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "permlevel": 1,
-   "print": 1,
-   "report": 1,
-   "role": "Gestor",
    "share": 1,
    "write": 1
   }

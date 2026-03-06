@@ -9,12 +9,12 @@
   "nome",
   "nif",
   "email",
-  "estado",
   "morada",
-  "localidade",
+  "column_break_wshr",
   "telefone",
-  "website",
-  "column_break_ztia"
+  "localidade",
+  "estado",
+  "website"
  ],
  "fields": [
   {
@@ -68,14 +68,14 @@
    "label": "Telefone"
   },
   {
-   "fieldname": "column_break_ztia",
+   "fieldname": "column_break_wshr",
    "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-03-05 09:19:07.709254",
+ "modified": "2026-03-06 10:42:28.056533",
  "modified_by": "Administrator",
  "module": "Cricket05",
  "name": "Fornecedor",
@@ -94,20 +94,11 @@
    "write": 1
   },
   {
+   "create": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
-   "report": 1,
-   "role": "Gestor",
-   "share": 1
-  },
-  {
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "permlevel": 1,
-   "print": 1,
    "report": 1,
    "role": "Gestor",
    "share": 1,

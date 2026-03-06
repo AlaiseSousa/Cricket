@@ -8,7 +8,7 @@ import frappe
 
 # VS Code / PyLance podem reclamar do import, por isso usamos esta forma segura
 try:
-    from frappe.model.document import Document
+    from frappe.model.document import Document # pyright: ignore[reportMissingImports]
 except ImportError:
     class Document:
         pass  # stub para o editor, não afeta runtime
